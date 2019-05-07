@@ -1,0 +1,19 @@
+
+type Element {
+  ProductId: Int,
+  TotalRatings: Int,
+  Rating: Float,
+}
+
+type Review {
+  HasErrors: Boolean,
+  Element: [Element],
+  ErrorList: [String],
+  Total: Int,
+  CurrentPage: Int
+}
+
+type Query {
+  review(productId: String): Review @withSecretKeys
+  reviews(productIds: [String!]): Review @withSecretKeys
+}
