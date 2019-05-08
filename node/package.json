@@ -1,6 +1,4 @@
 {
-  "name": "boticario.store-graphql",
-  "version": null,
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.0",
