@@ -29,8 +29,8 @@ export default class YourViewsClient extends ExternalClient {
   private get routes () {
     return {
       // Review endpoints
-      review: (productId: string) => `http://service.yourviews.com.br/api/${this.appId}/review/reviewshelf?productIds=${productId}`,
-      reviews: (productIds: string[]) => `http://service.yourviews.com.br/api/${this.appId}/review/reviewshelf?productIds=${productIds.join(',')}`,
+      review: (productId: string) => `/api/${this.appId}/review/reviewshelf?productIds=${productId}`,
+      reviews: (productIds: string[]) => `/api/${this.appId}/review/reviewshelf?productIds=${productIds.join(',')}`,
     }
   }
 
