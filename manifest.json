@@ -11,7 +11,7 @@
     {
       "name": "vbase-read-write",
       "attrs": {
-        "bucket": "reviews_secrets"
+        "bucket": "secret_keys"
       }
     },
     {
