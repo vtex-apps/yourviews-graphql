@@ -14,23 +14,29 @@ export default class YourViewsClient extends ExternalClient {
     this.token = secretKeys.yourviewsToken
   }
 
-  public async getReview (productId: string): Promise<string> {
-    return this.get(this.routes.review(productId), {
-      metric: 'yourviews-get-review',
+  public async getRating (productId: string): Promise<string> {
+    return this.get(this.routes.rating(productId), {
+      metric: 'yourviews-get-rating',
     })
   }
 
-  public async getReviews (productIds: string[]): Promise<string> {
-    return this.get(this.routes.reviews(productIds), {
+  public async getRatings (productIds: string[]): Promise<string> {
+    return this.get(this.routes.ratings(productIds), {
+      metric: 'yourviews-get-ratings',
+    })
+  }
+
+  public async getReviews (productId: string): Promise<string> {
+    return this.get(this.routes.reviews(productId), {
       metric: 'yourviews-get-reviews',
     })
   }
 
   private get routes () {
     return {
-      // Review endpoints
-      review: (productId: string) => `/api/${this.appId}/review/reviewshelf?productIds=${productId}`,
-      reviews: (productIds: string[]) => `/api/${this.appId}/review/reviewshelf?productIds=${productIds.join(',')}`,
+      rating: (productId: string) => `/api/${this.appId}/review/reviewshelf?productIds=${productId}`,
+      ratings: (productIds: string[]) => `/api/${this.appId}/review/reviewshelf?productIds=${productIds.join(',')}`,
+      reviews: (productId: string) => `/api/${this.appId}/review?productId=${productId}`,
     }
   }
 

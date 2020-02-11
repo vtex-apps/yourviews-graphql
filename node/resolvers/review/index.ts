@@ -1,9 +1,11 @@
 import {
-  review,
+  rating,
+  ratings,
   reviews,
 } from './yourviewsResolver'
 
 export const queries = {
-  review,
+  rating,
+  ratings,
   reviews,
 }

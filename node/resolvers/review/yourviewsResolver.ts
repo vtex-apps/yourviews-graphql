@@ -1,18 +1,22 @@
-interface ReviewArgs {
+interface SingleProductArgs {
   productId: string
 }
 
-export const review = async (_: any, args: ReviewArgs, ctx: Context) => {
-  const data = await ctx.clients.yourviews.getReview(args.productId)
-  console.log('data', data)
+export const rating = async (_: any, args: SingleProductArgs, ctx: Context) => {
+  const data = await ctx.clients.yourviews.getRating(args.productId)
   return data
 }
 
-interface ReviewsArgs {
+interface MultipleProductsArg {
   productIds: string[]
 }
 
-export const reviews = async (_: any, args: ReviewsArgs, ctx: Context) => {
-  const data = await ctx.clients.yourviews.getReviews(args.productIds)
+export const ratings = async (_: any, args: MultipleProductsArg, ctx: Context) => {
+  const data = await ctx.clients.yourviews.getRatings(args.productIds)
+  return data
+}
+
+export const reviews = async (_: any, args: SingleProductArgs, ctx: Context) => {
+  const data = await ctx.clients.yourviews.getReviews(args.productId)
   return data
 }
